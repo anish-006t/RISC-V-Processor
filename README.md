@@ -4,13 +4,13 @@ A dual-architecture Verilog implementation of a RISC-V CPU featuring sequential 
 
 ## Summary
 
-Designed and implemented two complete CPU architectures totaling **2,000+ lines of synthesizable Verilog code**:
+Designed and implemented two complete CPU architectures using verilog.
 - **Sequential Processor**: Single-cycle execution with 1 instruction per clock cycle, CPI = 1
 - **Pipelined Processor**: 5-stage pipeline achieving ~4-5× theoretical speedup with dynamic hazard resolution
 
 ## Key Achievements
 
-✓ **Hazard Mitigation**: Implemented load-use hazard detection unit and forwarding logic to handle data dependencies without stalls in 90% of cases  
+✓ **Hazard Mitigation**: Implemented load-use hazard detection unit and forwarding logic to handle data dependencies without stalls in most cases.  
 ✓ **ISA Support**: Full 64-bit arithmetic, logic, memory, and branch instructions with correct operand encoding  
 ✓ **Simulation & Verification**: Complete testbenches with waveform analysis (VCD) for all pipeline stages and control signals  
 ✓ **Modular Architecture**: 25+ reusable Verilog modules (ALU, register file, control units, pipeline registers)
@@ -92,7 +92,7 @@ RISC-V-Processor/
 
 ---
 
-## Quick Start
+## How to Run
 
 ### Prerequisites
 ```bash
@@ -109,16 +109,16 @@ brew install icarus-verilog gtkwave
 ```bash
 cd Sequential/
 python3 compiler.py          # Assemble code.txt → instructions.txt
-iverilog -o seq_sim seq_tb.v *.v
-./seq_sim
+iverilog seq_tb.v 
+./a.out
 ```
 
 **Pipelined Processor:**
 ```bash
 cd Pipeline/
 python3 compiler.py          # Assemble code.txt → instructions.txt
-iverilog -o pipe_sim pipe_tb.v *.v
-./pipe_sim
+iverilog -o pipe_tb.v
+./a.out
 gtkwave pipe_tb.vcd          # View waveforms (optional)
 ```
 
@@ -137,7 +137,7 @@ Check `register_file.txt` for final register values after simulation.
 - Support for 64-bit load/store operations
 
 **Control Logic**: 
-- Instruction decoder supports all 5 RISC-V instruction formats (R, I, S, B type)
+- Instruction decoder supports 4 RISC-V instruction formats (R, I, S, B type)
 - Multiplexed data paths for ALU operand selection and forwarding
 - PC control for sequential execution and branches
 
@@ -165,7 +165,6 @@ This implementation demonstrates key computer architecture concepts:
 
 - [RISC-V ISA Specification](https://riscv.org/specifications/)
 - [Computer Architecture: A Quantitative Approach](https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1)
-- [Verilog Language Reference](https://en.wikipedia.org/wiki/Verilog)
 
 ---
 

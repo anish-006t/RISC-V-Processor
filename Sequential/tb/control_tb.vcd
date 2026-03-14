@@ -1,0 +1,139 @@
+$date
+	Sun Feb 22 23:28:40 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module control_tb $end
+$var wire 1 ! RegWrite $end
+$var wire 1 " MemtoReg $end
+$var wire 1 # MemWrite $end
+$var wire 1 $ MemRead $end
+$var wire 1 % Branch $end
+$var wire 1 & ALUSrc $end
+$var wire 2 ' ALUOp [1:0] $end
+$var parameter 7 ( OPC_BRANCH $end
+$var parameter 7 ) OPC_I_ARITH $end
+$var parameter 7 * OPC_LOAD $end
+$var parameter 7 + OPC_OTHER $end
+$var parameter 7 , OPC_RTYPE $end
+$var parameter 7 - OPC_STORE $end
+$var reg 7 . opcode [6:0] $end
+$var integer 32 / test_fail [31:0] $end
+$var integer 32 0 test_pass [31:0] $end
+$scope module uut $end
+$var wire 7 1 opcode [6:0] $end
+$var parameter 7 2 OPC_BRANCH $end
+$var parameter 7 3 OPC_I_ARITH $end
+$var parameter 7 4 OPC_LOAD $end
+$var parameter 7 5 OPC_RTYPE $end
+$var parameter 7 6 OPC_STORE $end
+$var reg 2 7 ALUOp [1:0] $end
+$var reg 1 & ALUSrc $end
+$var reg 1 % Branch $end
+$var reg 1 $ MemRead $end
+$var reg 1 # MemWrite $end
+$var reg 1 " MemtoReg $end
+$var reg 1 ! RegWrite $end
+$upscope $end
+$scope task check $end
+$var reg 8 8 actual [7:0] $end
+$var reg 8 9 expected [7:0] $end
+$var reg 7 : op [6:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b100011 6
+b110011 5
+b11 4
+b10011 3
+b1100011 2
+b100011 -
+b110011 ,
+b1111111 +
+b11 *
+b10011 )
+b1100011 (
+$end
+#0
+$dumpvars
+b110011 :
+b10001 9
+bx 8
+b10 7
+b110011 1
+b0 0
+b0 /
+b110011 .
+b10 '
+0&
+0%
+0$
+0#
+0"
+1!
+$end
+#1000
+1&
+1!
+b0 '
+b0 7
+b10011 .
+b10011 1
+b11 9
+b10011 :
+b1 0
+b10001 8
+#2000
+1"
+1$
+1!
+1&
+b11 .
+b11 1
+b1100011 9
+b11 :
+b10 0
+b11 8
+#3000
+1#
+0!
+1&
+0"
+0$
+b100011 .
+b100011 1
+b110 9
+b100011 :
+b11 0
+b1100011 8
+#4000
+b1 '
+b1 7
+1%
+0&
+0#
+b1100011 .
+b1100011 1
+b10001000 9
+b1100011 :
+b100 0
+b110 8
+#5000
+b0 '
+b0 7
+0%
+b1111111 .
+b1111111 1
+b0 9
+b1111111 :
+b101 0
+b10001000 8
+#6000
+b110 0
+b0 8
